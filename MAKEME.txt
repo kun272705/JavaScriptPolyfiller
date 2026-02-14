@@ -1,4 +1,6 @@
 
+npm install
+
 vim .browserslistrc
 
 npx babel source/polyfill.js -o target/polyfill.optimized.js
@@ -8,3 +10,5 @@ npx rollup -p node-resolve -p commonjs -i target/polyfill.optimized.js -o target
 npx terser target/polyfill.bundled.js -o target/polyfill.compressed.js -c -m
 
 cp target/polyfill.compressed.js target/polyfill.js
+
+rm -rf target/polyfill.*.js
