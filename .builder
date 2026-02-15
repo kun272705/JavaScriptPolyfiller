@@ -6,7 +6,7 @@ build_js() {
 
   if [ -f "$input" ]; then
 
-    echo -e "\n $input -> $output"
+    echo -e "\n$input -> $output"
 
     npx babel "${input}" -o "${output/%.js/.optimized.js}"
 
