@@ -1,0 +1,7 @@
+{
+  "env": {
+    "mode": "entry",
+    "coreJs": "3.48.0",
+    "bugfixes": true
+  }
+}
