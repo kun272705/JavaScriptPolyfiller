@@ -6,7 +6,7 @@ build_js() {
 
   if [ -f "$input" ]; then
 
-    echo -e "\n$input -> $output\n"
+    echo -e "\n'$input' -> '$output'\n"
 
     npx swc "$input" -o "${output/%.js/.optimized.js}"
 
