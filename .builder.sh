@@ -15,8 +15,13 @@ build_js() {
 
     npx rollup -p node-resolve -p commonjs -i "${output/%.js/.optimized.js}" -o "${output/%.js/.bundled.js}" --failAfterWarnings
 
-    npx terser "${output/%.js/.bundled.js}" -o "${output/%.js/.compressed.js}" -c -m
+    if [[ "${NODE_ENV:-production}" == development ]]; then
 
-    cp target/polyfill.compressed.js target/polyfill.js
+      cp target/polyfill.bundled.js target/polyfill.js
+    else
+
+      npx terser "${output/%.js/.bundled.js}" -o "${output/%.js/.compressed.js}" -c -m
+      cp target/polyfill.compressed.js target/polyfill.js
+    fi
   fi
 }
