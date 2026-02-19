@@ -21,6 +21,7 @@ build_js() {
     else
 
       npx terser "${output/%.js/.bundled.js}" -o "${output/%.js/.compressed.js}" -c -m
+
       cp tgt/polyfill.compressed.js tgt/polyfill.js
     fi
   fi
