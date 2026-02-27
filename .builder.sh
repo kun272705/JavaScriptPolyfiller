@@ -15,7 +15,7 @@ build_js() {
 
     npx rollup -p node-resolve -p commonjs -i "${output/%.js/.optimized.js}" -o "${output/%.js/.bundled.js}" -f iife --failAfterWarnings
 
-    if [[ "${NODE_ENV:-production}" == development ]]; then
+    if [[ "${MODE:-production}" == development ]]; then
 
       cp tgt/polyfill.bundled.js tgt/polyfill.js
     else
