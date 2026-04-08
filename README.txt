@@ -1,4 +1,0 @@
-
-MyJavaScriptPolyfill
-
-This is MyJavaScriptPolyfill.
