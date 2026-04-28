@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-source .builder.sh
+source .builder
 
 build_js src/polyfill.js tgt/polyfill.js
 
