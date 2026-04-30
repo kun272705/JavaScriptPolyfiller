@@ -11,16 +11,12 @@ build_js() {
 
     npx swc "$input" -o "${output/%.js/.optimized.js}"
 
-    npx rolldown "${output/%.js/.optimized.js}" -o "${output/%.js/.bundled.js}" -f iife
+    if [[ "${MODE:-development}" == production ]]; then
 
-    if [[ "${MODE:-production}" == development ]]; then
-
-      cp tgt/polyfill.bundled.js tgt/polyfill.js
+      npx rolldown "${output/%.js/.optimized.js}" -o "$output" -f iife -m
     else
 
-      npx terser "${output/%.js/.bundled.js}" -o "${output/%.js/.compressed.js}" -c -m
-
-      cp tgt/polyfill.compressed.js tgt/polyfill.js
+      npx rolldown "${output/%.js/.optimized.js}" -o "$output" -f iife
     fi
   fi
 }

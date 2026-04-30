@@ -6,7 +6,6 @@
     "@swc/core": "^1.15.32",
     "core-js": "^3.49.0",
     "regenerator-runtime": "^0.14.1",
-    "rolldown": "^1.0.0-rc.18",
-    "terser": "^5.46.2"
+    "rolldown": "^1.0.0-rc.18"
   }
 }
