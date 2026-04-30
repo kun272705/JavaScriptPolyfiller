@@ -11,7 +11,7 @@ build_js() {
 
     npx swc "$input" -o "${output/%.js/.optimized.js}"
 
-    npx rollup -p node-resolve -p commonjs -i "${output/%.js/.optimized.js}" -o "${output/%.js/.bundled.js}" -f iife --failAfterWarnings
+    npx rolldown "${output/%.js/.optimized.js}" -o "${output/%.js/.bundled.js}" -f iife
 
     if [[ "${MODE:-production}" == development ]]; then
 
