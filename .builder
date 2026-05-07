@@ -9,7 +9,7 @@ build_js() {
 
   if [ -f "$input" ]; then
 
-    npx swc "$input" -o "${output/%.js/.optimized.js}"
+    npx swc "$input" -o "${output/%.js/.optimized.js}" -q
 
     if [[ "${MODE:-development}" == production ]]; then
 
